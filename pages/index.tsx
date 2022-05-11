@@ -15,11 +15,11 @@ const Home: NextPage = () => {
       <main className={styles.main}>
         <div className={styles.mainContainer}>
           <div>
-            <h1 className={styles.title}>Diversity at its best</h1>
-            <h4 className={styles.subTitle}>The best of culture in one place. Here lies the birth place of humanity.</h4>
+            <h1 className={styles.title}>Cultural Diversity at its best</h1>
+            <h4 className={styles.subTitle}>Watch and enjoy the best of culture in one place, where lies the birth place of humanity. <br></br>Changing the world, one scene at a time</h4>
             <br /><br /><br /><br />
             <p>
-              <span className={styles.slogan}>BUILT FOR THE WORLD, BY AFRICANS</span>
+              <span className={styles.slogan}>BUILT FOR THE WORLD, WITH THE UBUNTU</span>
             </p>
             <p>
               <button className={styles.btn}>Get Started</button>
@@ -36,12 +36,12 @@ const Home: NextPage = () => {
           <div className={styles.card}>
             <Image src="/images/hd-icon.png" height={50} width={50} alt="depiction of HD logo"/>
             <h3>Buy & Watch High Definition Movies anywhere, anytime</h3>
-            <p>You can watch or stream movies in HD and enjoy every moment. We provide a plethora of content that honors great culture.</p>
+            <p >You can watch or stream movies in HD and enjoy every moment. We provide a plethora of content that honors great culture.</p>
           </div>
           <div className={styles.card}>
             <Image src="/images/family-icon.png" height={40} width={40} alt="depiction of a family" />
             <h3>Share and earn with family and friends</h3>
-            <p>For every person you refer to the platform, earn a comission that gives you the ability to purchase even more content.</p>
+            <p>For every person you refer to the platform, earn a commission that gives you the ability to purchase even more content.</p>
           </div>
           <div className={styles.card}>
             <Image src="/images/family-icon.png" height={40} width={40} alt="depiction of a family" />
