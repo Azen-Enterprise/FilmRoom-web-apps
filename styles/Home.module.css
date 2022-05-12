@@ -77,7 +77,7 @@
 }
 
 .movieCard1 {
-  background-image: url('/images/sample1.jpeg');
+  background-image: url('/images/poster7.jpeg');
   background-repeat: no-repeat;
   background-position: center center;
   height: 456px;
@@ -87,7 +87,7 @@
 }
 
 .movieCard2 {
-  background-image: url('/images/sample2.jpeg');
+  background-image: url('/images/poster12.jpeg');
   background-repeat: no-repeat;
   background-position: center center;
   height: 456px;
@@ -97,7 +97,7 @@
 }
 
 .movieCard3 {
-  background-image: url('/images/sample3.jpeg');
+  background-image: url('/images/poster10.jpeg');
   background-repeat: no-repeat;
   background-position: center center;
   height: 456px;
