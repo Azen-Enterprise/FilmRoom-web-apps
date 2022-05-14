@@ -21,8 +21,8 @@ const Home: NextPage = () => {
             <p>
               <span className={styles.slogan}>BUILT FOR THE WORLD, WITH THE UBUNTU</span>
             </p>
+            <span>Enter your email to join our newsletter</span>
             <p className={styles.newsletterContainer}>
-              <span>Enter your email to join our newsletter</span>
               <input type="text" placeholder='e.g. john@gmail.com' className={styles.newsletterInput} />
               <button className={styles.btn}>Subscribe to newsletter</button>
             </p>
