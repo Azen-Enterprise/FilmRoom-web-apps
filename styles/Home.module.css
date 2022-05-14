@@ -24,6 +24,25 @@
   text-align: center;
 }
 
+.newsletterContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.newsletterContainer span {
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+.newsletterInput {
+  height: 70px;
+  width: 80%;
+  margin-bottom: 30px;
+  padding-left: 20px;
+}
+
 .title {
   font-weight: 800;
   font-size: 3.5rem;
