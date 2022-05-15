@@ -1,9 +1,30 @@
+import { useState } from 'react';
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 
+import { initializeApp } from 'firebase/app';
+import { getDatabase, push, ref } from 'firebase/database';
+import config from '../config/config';
+
 const Home: NextPage = () => {
+  const [email, setEmail] = useState('');
+  const [loading, setLoading] = useState(false);
+  const app = initializeApp(config);
+
+  const onSubmit = () => {
+    setLoading(true);
+    const db = getDatabase(app);
+    push(ref(db, '/newsletter'), {
+      email: email
+    }).then(() => {
+      console.log('successfully added email');
+      setEmail('');
+      setLoading(false);
+    });
+  }
+
   return (
     <div className={styles.container}>
       <Head>
@@ -23,8 +44,10 @@ const Home: NextPage = () => {
             </p>
             <span>Enter your email to join our newsletter</span>
             <p className={styles.newsletterContainer}>
-              <input type="text" placeholder='e.g. john@gmail.com' className={styles.newsletterInput} />
-              <button className={styles.btn}>Subscribe to newsletter</button>
+              <input type="text" placeholder='e.g. john@gmail.com' value={email} onChange={(e) => setEmail(e.target.value)} className={styles.newsletterInput} />
+              <button className={styles.btn} onClick={() => onSubmit()}>
+                {loading ? <span>Collecting email...</span> : <span>Subscribe to newsletter</span>}
+              </button>
             </p>
           </div>
         </div>
