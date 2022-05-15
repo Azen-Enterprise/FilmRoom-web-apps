@@ -37,7 +37,7 @@ const Home: NextPage = () => {
         <div className={styles.mainContainer}>
           <div>
             <h1 className={styles.title}>Cultural Diversity at its best</h1>
-            <h4 className={styles.subTitle}>Watch and enjoy the best of culture in one place, where lies the birth place of humanity. <br></br>Changing the world, one scene at a time</h4>
+            <h4 className={styles.subTitle}>Watch and enjoy the best of shows in one place, where lies the birth place of humanity. <br></br>Changing the narrative, one scene at a time</h4>
             <br /><br /><br /><br />
             <p>
               <span className={styles.slogan}>BUILT FOR THE WORLD, WITH THE UBUNTU</span>
@@ -59,8 +59,8 @@ const Home: NextPage = () => {
         <h5 className={styles.featuresSubTitle}>We are here to honor and preserve the great African culture and heritage</h5>
         <div className={styles.cardContainer}>
           <div className={styles.card}>
-            <Image src="/images/hd-icon.png" height={50} width={50} alt="depiction of HD logo"/>
-            <h3>Buy & Watch High Definition Movies anywhere, anytime</h3>
+            <Image src="/images/4k-icon.jpg" height={50} width={50} alt="depiction of HD logo"/>
+            <h3>Buy & Watch 4K Movies anywhere, anytime</h3>
             <p >You can watch or stream movies in HD and enjoy every moment. We provide a plethora of content that honors great culture.</p>
           </div>
           <div className={styles.card}>
@@ -69,12 +69,12 @@ const Home: NextPage = () => {
             <p>For every person you refer to the platform, earn a commission that gives you the ability to purchase even more content.</p>
           </div>
           <div className={styles.card}>
-            <Image src="/images/family-icon.png" height={40} width={40} alt="depiction of a family" />
+            <Image src="/images/gift-icon.png" height={40} width={40} alt="depiction of a family" />
             <h3>Gift your family or friends with movie tokens</h3>
             <p>Purchase movies on behalf of your family or friends so they can enjoy the great content that you enjoy.</p>
           </div>
           <div className={styles.card}>
-            <Image src="/images/laptop-icon.png" height={40} width={40} alt="depiction of laptop" />
+            <Image src="/images/reward-icon.jpeg" height={40} width={40} alt="depiction of laptop" />
             <h3>Great producers deserve a fair reward.</h3>
             <p>We support great producers by ensuring that their content reaches the maximum audience possible at a fraction of the market cost.</p>
           </div>
@@ -113,7 +113,7 @@ const Home: NextPage = () => {
           <span>FilmRoom &copy; Copyright 2022</span>
         </div>
         <div className={styles.footerContent}>
-          <span>Privay Policy</span>
+          <span>Privacy Policy</span>
           <span>Terms of Service</span>
           <span>About Us</span>
           <span>Contact Us</span>
