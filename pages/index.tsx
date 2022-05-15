@@ -67,7 +67,7 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
-        {showToast && <Toast message={'Email successfully collected'} />}
+        {showToast && <Toast message={'Thank you for signing up for our newsletter. We\'ve got many things in store for you!'} />}
         <div className={styles.mainContainer}>
           <div>
             <h1 className={styles.title}>Cultural Diversity at its best</h1>
