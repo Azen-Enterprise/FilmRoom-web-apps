@@ -2,15 +2,32 @@ import { useState } from 'react';
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import { initializeApp } from 'firebase/app'
+import { getDatabase, push, ref } from 'firebase/database'
 
-import { initializeApp } from 'firebase/app';
-import { getDatabase, push, ref } from 'firebase/database';
+// import {Toast} from '../components/';
+import styles from '../styles/Home.module.css'
 import config from '../config/config';
+
+// TODO: refactor this into it's own component
+type ToastProps = {
+  message: string;
+}
+
+type Props = ToastProps
+
+const Toast = ({message}: Props) => {
+  return (
+    <div className={styles.toastContainer}>
+      {message}
+    </div>
+  )
+}
 
 const Home: NextPage = () => {
   const [email, setEmail] = useState('');
   const [loading, setLoading] = useState(false);
+  const [showToast, setShowToast] = useState(false);
   const app = initializeApp(config);
 
   const onSubmit = () => {
@@ -21,6 +38,10 @@ const Home: NextPage = () => {
     }).then(() => {
       console.log('successfully added email');
       setEmail('');
+      setShowToast(true);
+      setTimeout(() => {
+        setShowToast(false);
+      }, 4000);
       setLoading(false);
     });
   }
@@ -34,6 +55,7 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
+        {showToast && <Toast message={'Email successfully collected'} />}
         <div className={styles.mainContainer}>
           <div>
             <h1 className={styles.title}>Cultural Diversity at its best</h1>
