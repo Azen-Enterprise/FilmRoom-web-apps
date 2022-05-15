@@ -28,22 +28,34 @@ const Home: NextPage = () => {
   const [email, setEmail] = useState('');
   const [loading, setLoading] = useState(false);
   const [showToast, setShowToast] = useState(false);
+  const [showError, setShowError] = useState('');
   const app = initializeApp(config);
 
   const onSubmit = () => {
     setLoading(true);
+    setShowError('');
     const db = getDatabase(app);
-    push(ref(db, '/newsletter'), {
-      email: email
-    }).then(() => {
-      console.log('successfully added email');
-      setEmail('');
-      setShowToast(true);
+    // Validate email
+    if ((/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(email))) {
+      push(ref(db, '/newsletter'), {
+        email: email
+      }).then(() => {
+        console.log('successfully added email');
+        setEmail('');
+        setShowToast(true);
+        setTimeout(() => {
+          setShowToast(false);
+        }, 4000);
+        setLoading(false);
+      });
+    } else {
+      setShowError('Invalid email entered')
       setTimeout(() => {
-        setShowToast(false);
-      }, 4000);
-      setLoading(false);
-    });
+        setShowError('')
+      }, 5000);
+    }
+
+    
   }
 
   return (
@@ -71,6 +83,7 @@ const Home: NextPage = () => {
                 {loading ? <span>Collecting email...</span> : <span>Subscribe to newsletter</span>}
               </button>
             </p>
+            {showError.length > 0 && <span className={styles.error}>Invalid email address</span>}
           </div>
         </div>
       </main>
