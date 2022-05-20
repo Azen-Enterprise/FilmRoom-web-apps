@@ -137,7 +137,7 @@ const Home: NextPage = () => {
           <Image src="/images/app-store-logo.png" alt="App store" height={100} width={300} />
         </div>
         <div>
-          <Image src="/images/cta.png" width={490} height={500} alt="CTA image" />
+          <Image src="/images/cta1.png" width={490} height={500} alt="CTA image" />
         </div>
       </section>
 
