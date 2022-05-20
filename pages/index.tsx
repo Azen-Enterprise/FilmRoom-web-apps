@@ -80,7 +80,7 @@ const Home: NextPage = () => {
             <p className={styles.newsletterContainer}>
               <input type="text" placeholder='e.g. john@gmail.com' value={email} onChange={(e) => setEmail(e.target.value)} className={styles.newsletterInput} />
               <button className={styles.btn} onClick={() => onSubmit()}>
-                {loading ? <span>Collecting email...</span> : <span>Subscribe to newsletter</span>}
+                {loading ? <span>Signing up email...</span> : <span>Subscribe to newsletter</span>}
               </button>
             </p>
             {showError.length > 0 && <span className={styles.error}>Invalid email address</span>}
@@ -95,22 +95,22 @@ const Home: NextPage = () => {
         <div className={styles.cardContainer}>
           <div className={styles.card}>
             <Image src="/images/4k-icon.jpg" height={50} width={50} alt="depiction of HD logo"/>
-            <h3>Buy & Watch 4K Movies anywhere, anytime</h3>
-            <p >You can watch or stream movies in HD and enjoy every moment. We provide a plethora of content that honors great culture.</p>
+            <h3>Buy & Watch 4K Movies anywhere, anytime.</h3>
+            <p >You can watch or stream movies 4 times better and enjoy every moment. We provide a plethora of content that honors great culture.</p>
           </div>
           <div className={styles.card}>
             <Image src="/images/family-icon.png" height={40} width={40} alt="depiction of a family" />
-            <h3>Share and earn with family and friends</h3>
+            <h3>Share and earn with family and friends.</h3>
             <p>For every person you refer to the platform, earn a commission that gives you the ability to purchase even more content.</p>
           </div>
           <div className={styles.card}>
             <Image src="/images/gift-icon.png" height={40} width={40} alt="depiction of a family" />
-            <h3>Gift your family or friends with movie tokens</h3>
+            <h3>Gift your family or friends with movie tokens.</h3>
             <p>Purchase movies on behalf of your family or friends so they can enjoy the great content that you enjoy.</p>
           </div>
           <div className={styles.card}>
             <Image src="/images/reward-icon.jpeg" height={40} width={40} alt="depiction of laptop" />
-            <h3>Great producers deserve a fair reward.</h3>
+            <h3>Great producers deserve a fair reward and here, they will get it.</h3>
             <p>We support great producers by ensuring that their content reaches the maximum audience possible at a fraction of the market cost.</p>
           </div>
         </div>
@@ -124,6 +124,7 @@ const Home: NextPage = () => {
           <div className={styles.movieCard1}></div>
           <div className={styles.movieCard2}></div>
           <div className={styles.movieCard3}></div>
+          <div className={styles.movieCard4}></div>
         </div>
       </section>
 
