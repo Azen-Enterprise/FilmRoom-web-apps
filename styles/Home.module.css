@@ -5,7 +5,7 @@
 }
 
 .main {
-  background-image: url('/images/home_bg.jpeg');
+  background-image: url('/images/bg-fr.png'); 
   background-repeat: no-repeat;
   background-position: center center;
   height: 95vh;
@@ -107,31 +107,41 @@
 }
 
 .movieCard1 {
-  background-image: url('/images/poster7.jpeg');
+  background-image: url('/images/poster13.jpg');
   background-repeat: no-repeat;
   background-position: center center;
-  height: 456px;
-  width: 364px;
+  height: 612px;
+  width: 33%;
   margin: 0 15px;
   border-radius: 5px;
 }
 
 .movieCard2 {
-  background-image: url('/images/poster12.jpeg');
+  background-image: url('/images/poster14.jpg');
   background-repeat: no-repeat;
   background-position: center center;
-  height: 456px;
-  width: 364px;
+  height: 612px;
+  width: 33%;
   margin: 0 15px;
   border-radius: 5px;
 }
 
 .movieCard3 {
-  background-image: url('/images/poster10.jpeg');
+  background-image: url('/images/poster15.jpg');
   background-repeat: no-repeat;
   background-position: center center;
-  height: 456px;
-  width: 364px;
+  height: 612px;
+  width: 33%;
+  margin: 0 15px;
+  border-radius: 5px;
+}
+
+.movieCard4 {
+  background-image: url('/images/poster9.jpg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 612px;
+  width: 33%;
   margin: 0 15px;
   border-radius: 5px;
 }
@@ -160,6 +170,7 @@
 .card h3 {
   font-size: 1.2rem;
   margin-top: 10px;
+  font-weight: bold;
 }
 
 .card p {
