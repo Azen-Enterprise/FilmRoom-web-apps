@@ -141,6 +141,7 @@ const Home: NextPage = () => {
         </div>
       </section>
 
+
       <footer className={styles.footer}>
         <div className={styles.branding}>
           <span className={styles.logo}>
