@@ -22,7 +22,6 @@ import Poster10 from '../../assets/demo/poster10.jpeg';
 const Home = () => {
     const responsive = {
         superLargeDesktop: {
-          // the naming can be any, depends on you.
           breakpoint: { max: 4000, min: 3000 },
           items: 5
         },
@@ -136,6 +135,20 @@ const Home = () => {
                         </div>
                     </Carousel>
                 </div>
+                <footer className={styles.footer}>
+                <div className={styles.branding}>
+                    <span className={styles.logo}>
+                        <Image src="/images/logos/footer-logo.png" alt="Film room logo" height={25} width={25} />
+                    </span>
+                    <span>FilmRoom &copy; Copyright 2022</span>
+                </div>
+                <div className={styles.footerContent}>
+                    <span>Privacy Policy</span>
+                    <span>Terms of Service</span>
+                    <span>About Us</span>
+                    <span>Contact Us</span>
+                </div>
+            </footer>
             </div>
         </div>
     )
