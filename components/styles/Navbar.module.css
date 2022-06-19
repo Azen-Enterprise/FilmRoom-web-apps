@@ -2,6 +2,9 @@
     color: #fff;
     /* background-color: blue; */
     padding: 20px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .logoWrapper {
@@ -13,6 +16,17 @@
     justify-content: center;
     align-items: center;
     margin-right: 30px
+}
+
+.userWrapper {
+    background-color: #fff;
+    height: 50px;
+    width: 50px;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 30px;
 }
 
 .imgLogo {
@@ -33,4 +47,9 @@
 
 .rightContainer > span:hover {
     color: #E1623A;
+}
+
+.leftContainer {
+    display: flex;
+    flex-direction: row;
 }
