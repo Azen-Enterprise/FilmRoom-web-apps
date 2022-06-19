@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../styles/Toast.module.css';
+import styles from './styles/Toast.module.css';
 
 export const Toast = () => {
     return (
