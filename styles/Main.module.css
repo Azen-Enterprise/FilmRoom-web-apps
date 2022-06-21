@@ -24,8 +24,10 @@
 }
 
 .imageWrapper {
-    height: 436px;
-    width: 302px;
+    /* height: 390px; */
+    /* width: 250px; */
+    height: 250px;
+    width: 300px;
     display: flex;
     justify-content: center;
     align-items: center;

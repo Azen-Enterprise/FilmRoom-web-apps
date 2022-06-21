@@ -18,6 +18,7 @@ import Poster7 from '../../assets/demo/poster7.jpeg';
 import Poster8 from '../../assets/demo/poster8.jpeg';
 import Poster9 from '../../assets/demo/poster9.jpeg';
 import Poster10 from '../../assets/demo/poster10.jpeg';
+// import Video1 from '../../assets/demo/demo.mp4';
 
 const Home = () => {
     const responsive = {
@@ -27,7 +28,7 @@ const Home = () => {
         },
         desktop: {
           breakpoint: { max: 3000, min: 1024 },
-          items: 4
+          items: 5
         },
         tablet: {
           breakpoint: { max: 1024, min: 464 },
@@ -43,6 +44,15 @@ const Home = () => {
         <div className={styles.homeContainer}>
             <Navbar />
             <div className={styles.body}>
+                <div>
+                    <video loop autoPlay>
+                        <source
+                        src="../../assets/demo/demo.mp4"
+                        type="video/mp4"
+                        />
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
                 <div className={styles.sectionHeader}>
                     <h6>Recently Purchased</h6>
                     <div className={styles.block} />
@@ -63,6 +73,9 @@ const Home = () => {
                         </div>
                         <div className={styles.imageWrapper}>
                             <Image src={Poster8} alt="image cover art" className={styles.coverArt} />
+                        </div>
+                        <div className={styles.imageWrapper}>
+                            <Image src={Poster9} alt="image cover art" className={styles.coverArt} />
                         </div>
                     </Carousel>
                 </div>

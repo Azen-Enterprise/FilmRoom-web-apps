@@ -4,14 +4,18 @@ import Image from 'next/image';
 import styles from './styles/Input.module.css';
 import PersonIcon from './../assets/person-icon.svg';
 
+type InputEvent = React.ChangeEvent<HTMLInputElement>;
+
 type InputProps = {
     placeholderText: string;
     showIcon: boolean;
     type?: string;
     icon?: string;
+    value?: string;
+    onChange?: (e: InputEvent) => void;
 }
 
-const Input: FC<InputProps> = ({ placeholderText, showIcon, type, icon }) => {
+const Input: FC<InputProps> = ({ placeholderText, showIcon, type, icon, value }) => {
     const inputType = type || 'text';
     return (
         <div className={styles.inputContainer}>
@@ -26,7 +30,7 @@ const Input: FC<InputProps> = ({ placeholderText, showIcon, type, icon }) => {
                     />
                 </div>
             }
-            <input type={inputType} className={styles.input} placeholder={placeholderText} /> 
+            <input type={inputType} value={value} className={styles.input} placeholder={placeholderText} /> 
         </div>
     )
 }
