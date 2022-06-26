@@ -20,17 +20,18 @@ import Poster9 from '../../assets/demo/poster9.jpeg';
 import Poster10 from '../../assets/demo/poster10.jpeg';
 import Poster from '../../components/Poster';
 import Footer from '../../components/Footer';
+import Profile from '../../layout/Profile';
 // import Video1 from '../../assets/demo/demo.mp4';
 
 const Home = () => {
     const responsive = {
         superLargeDesktop: {
           breakpoint: { max: 4000, min: 3000 },
-          items: 5
+          items: 7
         },
         desktop: {
           breakpoint: { max: 3000, min: 1024 },
-          items: 5
+          items: 6
         },
         tablet: {
           breakpoint: { max: 1024, min: 464 },
@@ -44,7 +45,7 @@ const Home = () => {
 
     return (
         <div className={styles.homeContainer}>
-            <Navbar isLoggedIn={true} />
+            <Navbar isLoggedIn={true} isSearch={false} />
             <div className={styles.body}>
                 <header className={styles.banner}>
                     <div className={styles.banner__contents}>
@@ -66,13 +67,27 @@ const Home = () => {
                 </div>
                 <div className={styles.carouselWrapper}>
                     <Carousel removeArrowOnDeviceType={["tablet", "mobile"]} responsive={responsive}>
-                        <Poster imagePath={Poster1} />
-                        <Poster imagePath={Poster9} />
-                        <Poster imagePath={Poster2} />
-                        <Poster imagePath={Poster3} />
-                        <Poster imagePath={Poster4} />
-                        <Poster imagePath={Poster8} />
-                        <Poster imagePath={Poster7} />
+                        <div data-bs-toggle="modal" data-bs-target="#movieDetails">
+                            <Poster imagePath={Poster1} />
+                        </div>
+                        <div data-bs-toggle="modal" data-bs-target="#movieDetails">
+                            <Poster imagePath={Poster9} />
+                        </div>
+                        <div data-bs-toggle="modal" data-bs-target="#movieDetails">
+                            <Poster imagePath={Poster2} />
+                        </div>
+                        <div data-bs-toggle="modal" data-bs-target="#movieDetails">
+                            <Poster imagePath={Poster3} />
+                        </div>
+                        <div data-bs-toggle="modal" data-bs-target="#movieDetails">
+                            <Poster imagePath={Poster4} />
+                        </div>
+                        <div data-bs-toggle="modal" data-bs-target="#movieDetails">
+                            <Poster imagePath={Poster8} />
+                        </div>
+                        <div data-bs-toggle="modal" data-bs-target="#movieDetails">
+                            <Poster imagePath={Poster7} />
+                        </div>
                     </Carousel>
                 </div>
                 <div className={styles.sectionHeader}>
@@ -121,11 +136,62 @@ const Home = () => {
                     <div className="modal-dialog">
                         <div className="modal-content">
                             <div className="modal-body">
-                                
+                               <Profile />
                             </div>
                         </div>
                     </div>
+                </div>
+                <div className="modal" id="movieDetails">
+                    <div className="modal-dialog">
+                        <div className="modal-content">
+                            <div className="modal-body">
+                                <div className={styles.movie__container}>
+                                    <div className={styles.banner__contents}>
+                                    <div className="banner__buttons">
+                                        <button className={styles.banner__button}>Play Trailer</button>
+                                        <button className={styles.banner__button}>Buy Movie</button>
+                                    </div>
+                                    </div>
+                                </div>
+                                <div className={styles.movie__content}>
+                                    <div className="row">
+                                        <div className="col">
+                                            <div className={styles.detail__header}>
+                                                <span>28th March 2022.&nbsp;&nbsp;</span>
+                                                <span>Romance, Thriller</span>
+                                                <span className={styles.rating}>18+</span>
+                                            </div>
+                                            <div className={styles.movie__description}>
+                                                Inspired by Nobel Peace Prize winner Malala Yousafzai, a young girl defies the expectations of her father and village to pursue an education
+                                            </div>
+                                        </div>
+                                        <div className="col">
+                                            <div>
+                                                <span className={styles.heading}>Cast: </span>
+                                                <span>John Snow, Sydney Emade, Emeka Ike, Ramsey Noah</span>
+                                            </div>
+                                            <div>
+                                                <span className={styles.heading}>Genres: </span>
+                                                <span>Cameroonian, Movie, Romance, Thriller</span>
+                                            </div>
+                                            <div>
+                                                <span className={styles.heading}>This movie is: </span>
+                                                <span>Wonderful</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className={styles.sectionHeader}>
+                                        <h6>More Like This</h6>
+                                        <div className={styles.block} />
+                                    </div>
+                                    <div className={styles.videoPlayer}>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                </div>
                 <Footer />
             </div>
         </div>

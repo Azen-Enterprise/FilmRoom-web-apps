@@ -5,6 +5,52 @@
     background-color: #252525;
 }
 
+.rating {
+  border: 1px solid #E1623A;
+  margin: 0px 5px;
+  padding: 5px;
+  border-radius: 3px;;
+}
+
+.detail__header {
+  font-size: 12px;
+  font-weight: 600;
+  color: #E1623A;
+  margin-bottom: 10px;
+}
+
+.movie__description {
+  color: grey;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.heading {
+  color: grey;
+}
+
+.movie__container {
+  color: #fff;
+  object-fit: contain;
+  height: 250px;
+  background-size: cover;
+  background-position: center center;
+  background-image: url('../assets/demo/poster1.jpeg'); 
+}
+
+.carouselWrapper {
+  margin-bottom: 50px;
+}
+
+.movie__content {
+  padding: 20px 30px;
+}
+
+.videoPlayer {
+  background-color: #E1623A;
+  height: 400px;
+}
+
 .banner {
   color: #fff;
   object-fit: contain;

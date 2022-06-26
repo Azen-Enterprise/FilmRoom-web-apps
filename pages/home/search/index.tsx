@@ -80,7 +80,7 @@ const Search = () => {
 
     return (
         <div className={styles.searchContainer}>
-            <Navbar isLoggedIn={true} />
+            <Navbar isLoggedIn={true} isSearch={true} />
             <div className={styles.searchBody}>
                 <div className={styles.searchInput}>
                     <Input 
@@ -95,7 +95,7 @@ const Search = () => {
                     />
                 </div>
                 <div className={styles.results}>
-                    <p>Loading...</p>
+                    <p>No search yet...</p>
                     {
                         filteredMovies.map((movie) => {
                             return (

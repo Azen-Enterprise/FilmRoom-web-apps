@@ -18,4 +18,32 @@ a {
 
 .modal-content {
   background-color: #252525;
+  width: 150%;
+}
+
+.modal {
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) { 
+  .modal:before {
+    display: inline-block;
+    vertical-align: middle;
+    content: " ";
+    height: 100%;
+  }
+}
+
+.modal-dialog {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+  position: relative;
+  left: -90px;
+}
+
+.modal-body {
+  padding: 0px !important;
+  font-size: 12px;
+  font-weight: 400;
 }
