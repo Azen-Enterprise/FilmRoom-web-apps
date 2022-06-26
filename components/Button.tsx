@@ -4,15 +4,15 @@ import styles from './styles/Button.module.css';
 
 type ButtonProps = {
     children: React.ReactNode;
-    navigateTo: string;
+    onClick?: () => void;
 }
 
-const Button: FC<ButtonProps> = ({ children, navigateTo }) => {
+const Button: FC<ButtonProps> = ({ children, onClick }) => {
     return (
-        <button className={styles.btnContainer}>
-            <Link href={navigateTo} passHref={true}>
+        <button className={styles.btnContainer} onClick={onClick}>
+            {/* <Link passHref={true}> */}
                 <span className={styles.btnText}>{children}</span>
-            </Link>
+            {/* </Link> */}
         </button>
     )
 }

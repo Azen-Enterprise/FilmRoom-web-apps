@@ -12,10 +12,10 @@ type InputProps = {
     type?: string;
     icon?: string;
     value?: string;
-    onChange?: (e: InputEvent) => void;
+    onChange?: (event: InputEvent) => void;
 }
 
-const Input: FC<InputProps> = ({ placeholderText, showIcon, type, icon, value }) => {
+const Input: FC<InputProps> = ({ placeholderText, showIcon, type, icon, value, onChange }) => {
     const inputType = type || 'text';
     return (
         <div className={styles.inputContainer}>
@@ -30,7 +30,7 @@ const Input: FC<InputProps> = ({ placeholderText, showIcon, type, icon, value })
                     />
                 </div>
             }
-            <input type={inputType} value={value} className={styles.input} placeholder={placeholderText} /> 
+            <input type={inputType} value={value} onChange={onChange} className={styles.input} placeholder={placeholderText} /> 
         </div>
     )
 }

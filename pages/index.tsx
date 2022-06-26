@@ -89,26 +89,26 @@ const Home: NextPage = () => {
       </main>
 
       {/* Features */}
-      <section className={styles.featuresContainer}>
+      <section className={`${styles.featuresContainer} container-fluid`}>
         <h3 className={styles.sectionTitle}>Our Offer</h3>
         <h5 className={styles.featuresSubTitle}>We are here to honor and preserve the great African culture and heritage</h5>
-        <div className={styles.cardContainer}>
-          <div className={styles.card}>
+        <div className={`${styles.cardContainer} row`}>
+          <div className={`${styles.card} col`}>
             <Image src="/images/4k-icon.jpg" height={50} width={50} alt="depiction of HD logo"/>
             <h3>Buy & Watch 4K Movies anywhere, anytime.</h3>
             <p >You can watch or stream movies 4 times better and enjoy every moment. We provide a plethora of content that honors great culture.</p>
           </div>
-          <div className={styles.card}>
+          <div className={`${styles.card} col`}>
             <Image src="/images/family-icon.png" height={40} width={40} alt="depiction of a family" />
             <h3>Share and earn with family and friends.</h3>
             <p>For every person you refer to the platform, earn a commission that gives you the ability to purchase even more content.</p>
           </div>
-          <div className={styles.card}>
+          <div className={`${styles.card} col`}>
             <Image src="/images/gift-icon.png" height={40} width={40} alt="depiction of a family" />
             <h3>Gift your family or friends with movie tokens.</h3>
             <p>Purchase movies on behalf of your family or friends so they can enjoy the great content that you enjoy.</p>
           </div>
-          <div className={styles.card}>
+          <div className={`${styles.card} col`}>
             <Image src="/images/reward-icon.jpeg" height={40} width={40} alt="depiction of laptop" />
             <h3>Great producers deserve a fair reward and here, they will get it.</h3>
             <p>We support great producers by ensuring that their content reaches the maximum audience possible at a fraction of the market cost.</p>
