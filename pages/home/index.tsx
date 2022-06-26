@@ -18,6 +18,8 @@ import Poster7 from '../../assets/demo/poster7.jpeg';
 import Poster8 from '../../assets/demo/poster8.jpeg';
 import Poster9 from '../../assets/demo/poster9.jpeg';
 import Poster10 from '../../assets/demo/poster10.jpeg';
+import Poster from '../../components/Poster';
+import Footer from '../../components/Footer';
 // import Video1 from '../../assets/demo/demo.mp4';
 
 const Home = () => {
@@ -44,39 +46,33 @@ const Home = () => {
         <div className={styles.homeContainer}>
             <Navbar />
             <div className={styles.body}>
-                <div>
-                    <video loop autoPlay>
-                        <source
-                        src="../../assets/demo/demo.mp4"
-                        type="video/mp4"
-                        />
-                        Your browser does not support the video tag.
-                    </video>
-                </div>
+                <header className={styles.banner}>
+                    <div className={styles.banner__contents}>
+                        <h1 className={styles.banner__title}>The Fishermans Diary</h1>
+                        <div className="banner__buttons">
+                            <button className={styles.banner__button}>Play Trailer</button>
+                            <button className={styles.banner__button}>My Movies</button>
+                        </div>
+                        <div className={styles.banner__description}>
+                            Inspired by Nobel Peace Prize winner Malala Yousafzai, a young girl defies the expectations of her father and village to pursue an education
+                        </div>
+                    </div>
+
+                    <div className={styles.banner__fadeBottom} />
+                </header>
                 <div className={styles.sectionHeader}>
                     <h6>Recently Purchased</h6>
                     <div className={styles.block} />
                 </div>
                 <div className={styles.carouselWrapper}>
                     <Carousel removeArrowOnDeviceType={["tablet", "mobile"]} responsive={responsive}>
-                        <div className={styles.imageWrapper}>
-                            <Image src={Poster9} alt="image cover art" className={styles.coverArt} />
-                        </div>
-                        <div className={styles.imageWrapper}>
-                            <Image src={Poster10} alt="image cover art" className={styles.coverArt} />
-                        </div>
-                        <div className={styles.imageWrapper}>
-                            <Image src={Poster2} alt="image cover art" className={styles.coverArt} />
-                        </div>
-                        <div className={styles.imageWrapper}>
-                            <Image src={Poster3} alt="image cover art" className={styles.coverArt} />
-                        </div>
-                        <div className={styles.imageWrapper}>
-                            <Image src={Poster8} alt="image cover art" className={styles.coverArt} />
-                        </div>
-                        <div className={styles.imageWrapper}>
-                            <Image src={Poster9} alt="image cover art" className={styles.coverArt} />
-                        </div>
+                        <Poster imagePath={Poster1} />
+                        <Poster imagePath={Poster9} />
+                        <Poster imagePath={Poster2} />
+                        <Poster imagePath={Poster3} />
+                        <Poster imagePath={Poster4} />
+                        <Poster imagePath={Poster8} />
+                        <Poster imagePath={Poster7} />
                     </Carousel>
                 </div>
                 <div className={styles.sectionHeader}>
@@ -85,21 +81,12 @@ const Home = () => {
                 </div>
                 <div className={styles.carouselWrapper}>
                     <Carousel removeArrowOnDeviceType={["tablet", "mobile"]} responsive={responsive}>
-                        <div className={styles.imageWrapper}>
-                            <Image src={Poster8} alt="image cover art" className={styles.coverArt} />
-                        </div>
-                        <div className={styles.imageWrapper}>
-                            <Image src={Poster2} alt="image cover art" className={styles.coverArt} />
-                        </div>
-                        <div className={styles.imageWrapper}>
-                            <Image src={Poster1} alt="image cover art" className={styles.coverArt} />
-                        </div>
-                        <div className={styles.imageWrapper}>
-                            <Image src={Poster3} alt="image cover art" className={styles.coverArt} />
-                        </div>
-                        <div className={styles.imageWrapper}>
-                            <Image src={Poster4} alt="image cover art" className={styles.coverArt} />
-                        </div>
+                        <Poster imagePath={Poster7} />
+                        <Poster imagePath={Poster8} />
+                        <Poster imagePath={Poster1} />
+                        <Poster imagePath={Poster2} />
+                        <Poster imagePath={Poster3} />
+                        <Poster imagePath={Poster9} />
                     </Carousel>
                 </div>
                 <div className={styles.sectionHeader}>
@@ -108,21 +95,12 @@ const Home = () => {
                 </div>
                 <div className={styles.carouselWrapper}>
                     <Carousel removeArrowOnDeviceType={["tablet", "mobile"]} responsive={responsive}>
-                        <div className={styles.imageWrapper}>
-                            <Image src={Poster4} alt="image cover art" className={styles.coverArt} />
-                        </div>
-                        <div className={styles.imageWrapper}>
-                            <Image src={Poster1} alt="image cover art" className={styles.coverArt} />
-                        </div>
-                        <div className={styles.imageWrapper}>
-                            <Image src={Poster2} alt="image cover art" className={styles.coverArt} />
-                        </div>
-                        <div className={styles.imageWrapper}>
-                            <Image src={Poster3} alt="image cover art" className={styles.coverArt} />
-                        </div>
-                        <div className={styles.imageWrapper}>
-                            <Image src={Poster8} alt="image cover art" className={styles.coverArt} />
-                        </div>
+                        <Poster imagePath={Poster9} />
+                        <Poster imagePath={Poster1} />
+                        <Poster imagePath={Poster2} />
+                        <Poster imagePath={Poster3} />
+                        <Poster imagePath={Poster4} />
+                        <Poster imagePath={Poster8} />
                     </Carousel>
                 </div>
                 <div className={styles.sectionHeader}>
@@ -131,37 +109,15 @@ const Home = () => {
                 </div>
                 <div className={styles.carouselWrapper}>
                     <Carousel removeArrowOnDeviceType={["tablet", "mobile"]} responsive={responsive}>
-                        <div className={styles.imageWrapper}>
-                            <Image src={Poster4} alt="image cover art" className={styles.coverArt} />
-                        </div>
-                        <div className={styles.imageWrapper}>
-                            <Image src={Poster1} alt="image cover art" className={styles.coverArt} />
-                        </div>
-                        <div className={styles.imageWrapper}>
-                            <Image src={Poster2} alt="image cover art" className={styles.coverArt} />
-                        </div>
-                        <div className={styles.imageWrapper}>
-                            <Image src={Poster3} alt="image cover art" className={styles.coverArt} />
-                        </div>
-                        <div className={styles.imageWrapper}>
-                            <Image src={Poster8} alt="image cover art" className={styles.coverArt} />
-                        </div>
+                        <Poster imagePath={Poster7} />
+                        <Poster imagePath={Poster8} />
+                        <Poster imagePath={Poster1} />
+                        <Poster imagePath={Poster2} />
+                        <Poster imagePath={Poster3} />
+                        <Poster imagePath={Poster9} />
                     </Carousel>
                 </div>
-                <footer className={styles.footer}>
-                <div className={styles.branding}>
-                    <span className={styles.logo}>
-                        <Image src="/images/logos/footer-logo.png" alt="Film room logo" height={25} width={25} />
-                    </span>
-                    <span>FilmRoom &copy; Copyright 2022</span>
-                </div>
-                <div className={styles.footerContent}>
-                    <span>Privacy Policy</span>
-                    <span>Terms of Service</span>
-                    <span>About Us</span>
-                    <span>Contact Us</span>
-                </div>
-            </footer>
+                <Footer />
             </div>
         </div>
     )
