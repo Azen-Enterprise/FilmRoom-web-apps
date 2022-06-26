@@ -57,7 +57,6 @@ const Login = () => {
                 setShowError(true);
                 setErrorMsg('Please enter a valid email address!');
               }
-            // router.push('/home');
         } else {
             setShowError(true);
             setIsLoading(false);

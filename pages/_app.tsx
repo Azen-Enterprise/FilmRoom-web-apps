@@ -1,10 +1,17 @@
 /* eslint-disable @next/next/no-page-custom-font */
 import 'bootstrap/dist/css/bootstrap.css'
+import '@popperjs/core';
+import React, { useEffect } from 'react';
 import Head from 'next/head'
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 
 function MyApp({ Component, pageProps }: AppProps) {
+  useEffect(() => {
+    typeof document !== undefined
+      ? require("bootstrap/dist/js/bootstrap")
+      : null;
+    },[]);
   return (
     <>
       <Head>

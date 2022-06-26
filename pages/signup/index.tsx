@@ -109,13 +109,13 @@ const Signup = () => {
                         showIcon={true} 
                         placeholderText='Email' 
                         value={email}
-                        onChange={(event: InputEvent) => setEmail(event.target.value)}
+                        onChange={(event) => setEmail(event.target.value)}
                     />
                     <Input 
                         showIcon={true} 
                         icon={PhoneIcon}
                         value={phone}
-                        onChange={(event: InputEvent) => setPhone(event.target.value)}
+                        onChange={(event) => setPhone(event.target.value)}
                         placeholderText='Phone Number' 
                     />
                     <Input 
@@ -124,7 +124,7 @@ const Signup = () => {
                         showIcon={true} 
                         placeholderText='Password' 
                         value={password}
-                        onChange={(event: InputEvent) => setPassword(event.target.value)}
+                        onChange={(event) => setPassword(event.target.value)}
                     />
                     <Input 
                         type='password' 
@@ -132,7 +132,7 @@ const Signup = () => {
                         showIcon={true} 
                         placeholderText='Password' 
                         value={confirmPassword}
-                        onChange={(event: InputEvent) => setConfirmPassword(event.target.value)}
+                        onChange={(event) => setConfirmPassword(event.target.value)}
                     />
                     <Button onClick={() => signUpUser()}>
                         {isLoading ? 'Creating your account...' : 'Create your account'}

@@ -16,7 +16,7 @@ const Navbar: FC<Props> = ({ isLoggedIn }) => {
         <div className={styles.navContainer}>
             <div className={styles.rightContainer}>
                 <div className={styles.logoWrapper}>
-                    <Link href="/" passHref={true}>
+                    <Link href="/home" passHref={true}>
                         <Image src={Logo} alt="logo" height={30} width={30} className={styles.imgLogo} />
                     </Link> 
                 </div>
@@ -33,7 +33,9 @@ const Navbar: FC<Props> = ({ isLoggedIn }) => {
             <div className={styles.leftContainer}>
                 {isLoggedIn ?
                     <>
-                        <Image src={SearchIcon} alt="Search icon" height={30} width={30} />
+                        <Link href="/home/search">
+                            <Image src={SearchIcon} alt="Search icon" height={30} width={30} />
+                        </Link>
                         <div className={styles.userWrapper}>
                             <Image src={UserIcon} alt="User icon" height={25} width={25} />
                         </div>
