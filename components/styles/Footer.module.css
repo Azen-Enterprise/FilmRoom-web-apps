@@ -1,8 +1,12 @@
 .footer {
     display: flex;
+    background-color: #252525;
     padding: 20px 0px;
     justify-content: space-between;
+    position: fixed;
     align-items: center;
+    bottom: 0;
+    width: 100%;
 }
 
 .branding {
@@ -14,6 +18,7 @@
 }
 
 .logo {
+    cursor: pointer;
     background-color: #fff;
     padding: 10px;
     border-radius: 35px;

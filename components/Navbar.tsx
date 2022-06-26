@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import Link from 'next/Link';
+import Link from 'next/link';
 import Image from 'next/image';
 import styles from './styles/Navbar.module.css';
 
@@ -35,7 +35,7 @@ const Navbar: FC<Props> = ({ isLoggedIn, isSearch = false }) => {
                 <div className={styles.leftContainer}>
                     {isLoggedIn ?
                         <>
-                            <Link href="/home/search">
+                            <Link href="/home/search" passHref={true}>
                                 <Image src={SearchIcon} alt="Search icon" height={30} width={30} />
                             </Link>
                             <div className={styles.userWrapper} data-bs-toggle="modal" data-bs-target="#exampleModal">
