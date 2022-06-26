@@ -8,6 +8,8 @@ import { getDatabase, push, ref } from 'firebase/database'
 // import {Toast} from '../components/';
 import styles from '../styles/Home.module.css'
 import config from '../config/config';
+import Footer from '../components/Footer';
+import { Navbar } from '../components';
 
 // TODO: refactor this into it's own component
 type ToastProps = {
@@ -65,6 +67,8 @@ const Home: NextPage = () => {
         <meta name="description" content="A platform for movies for Africans by Africans" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
+      <Navbar isLoggedIn={false} />
 
       <main className={styles.main}>
         {showToast && <Toast message={'Thank you for signing up for our newsletter. We\'ve got many things in store for you!'} />}
@@ -141,21 +145,7 @@ const Home: NextPage = () => {
         </div>
       </section>
 
-
-      <footer className={styles.footer}>
-        <div className={styles.branding}>
-          <span className={styles.logo}>
-            <Image src="/images/logos/footer-logo.png" alt="Film room logo" height={25} width={25} />
-          </span>
-          <span>FilmRoom &copy; Copyright 2022</span>
-        </div>
-        <div className={styles.footerContent}>
-          <span>Privacy Policy</span>
-          <span>Terms of Service</span>
-          <span>About Us</span>
-          <span>Contact Us</span>
-        </div>
-      </footer>
+      <Footer />
     </div>
   )
 }

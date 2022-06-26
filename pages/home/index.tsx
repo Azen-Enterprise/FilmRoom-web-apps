@@ -44,7 +44,7 @@ const Home = () => {
 
     return (
         <div className={styles.homeContainer}>
-            <Navbar />
+            <Navbar isLoggedIn={true} />
             <div className={styles.body}>
                 <header className={styles.banner}>
                     <div className={styles.banner__contents}>

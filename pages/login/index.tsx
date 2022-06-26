@@ -6,7 +6,7 @@ import {signInWithEmailAndPassword} from 'firebase/auth';
 import {authentication} from '../../firebase/firebase-config';
 
 import styles from '../../styles/Login.module.css';
-import { Button, Input } from '../../components';
+import { Button, Input, Navbar } from '../../components';
 import LockIcon from '../../assets/password-icon.svg';
 import { isEmpty, validateEmail } from '../../helpers/utils';
 

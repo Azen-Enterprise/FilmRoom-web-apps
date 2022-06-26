@@ -18,6 +18,14 @@
     margin-right: 30px
 }
 
+.loginBtn {
+    cursor: pointer;
+}
+
+.loginBtn:hover {
+    color: #E1623A;
+}
+
 .userWrapper {
     background-color: #fff;
     height: 50px;
