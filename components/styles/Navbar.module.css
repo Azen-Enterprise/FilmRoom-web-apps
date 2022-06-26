@@ -23,10 +23,11 @@
 }
 
 .loginBtn:hover {
-    color: #E1623A;
+    color: #E1623A !important;
 }
 
 .userWrapper {
+    cursor: pointer;
     background-color: #fff;
     height: 50px;
     width: 50px;

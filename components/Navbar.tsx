@@ -36,13 +36,13 @@ const Navbar: FC<Props> = ({ isLoggedIn }) => {
                         <Link href="/home/search">
                             <Image src={SearchIcon} alt="Search icon" height={30} width={30} />
                         </Link>
-                        <div className={styles.userWrapper}>
+                        <div className={styles.userWrapper} data-bs-toggle="modal" data-bs-target="#exampleModal">
                             <Image src={UserIcon} alt="User icon" height={25} width={25} />
                         </div>
                     </> :
                     <div className={styles.loginBtn}>
                         <Link href={'/login'} passHref={true}>
-                            Login
+                            <span className={styles.loginBtn}>Login</span>
                         </Link>
                     </div>
                 }

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useRouter } from 'next/router';
 import {signInWithEmailAndPassword} from 'firebase/auth';
 
@@ -8,6 +9,7 @@ import {authentication} from '../../firebase/firebase-config';
 import styles from '../../styles/Login.module.css';
 import { Button, Input, Navbar } from '../../components';
 import LockIcon from '../../assets/password-icon.svg';
+import Logo from '../../assets/logo.png';
 import { isEmpty, validateEmail } from '../../helpers/utils';
 
 type InputEvent = React.ChangeEvent<HTMLInputElement>
@@ -75,6 +77,11 @@ const Login = () => {
                             {errorMsg}
                         </div>
                     }
+                    <div className={styles.logoWrapper}>
+                        <Link href="/" passHref={true}>
+                            <Image src={Logo} alt="logo" height={30} width={30} className={styles.imgLogo} />
+                        </Link> 
+                    </div>
                     <h4 className={styles.formHeader}>Login to Get Started</h4>
                     <Input 
                         showIcon={true} 
@@ -90,6 +97,7 @@ const Login = () => {
                         value={password}
                         onChange={(event: InputEvent) => setPassword(event.target.value)}
                     />
+                    <br />
                     <Button onClick={() => onSubmitForm()}>
                         {isLoading ? 'Logging you in...' : 'Login'}
                     </Button>

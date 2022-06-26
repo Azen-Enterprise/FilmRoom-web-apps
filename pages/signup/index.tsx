@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useRouter } from 'next/router';
 import {createUserWithEmailAndPassword} from 'firebase/auth';
 
@@ -11,6 +12,7 @@ import { Button, Input } from '../../components';
 import LockIcon from '../../assets/password-icon.svg';
 import EmailIcon from '../../assets/email-icon.svg';
 import PhoneIcon from '../../assets/phone-icon.svg';
+import Logo from '../../assets/logo.png';
 
 const Signup = () => {
     const router = useRouter();
@@ -104,6 +106,11 @@ const Signup = () => {
                             {errorMsg}
                         </div>
                     }
+                    <div className={styles.logoWrapper}>
+                        <Link href="/" passHref={true}>
+                            <Image src={Logo} alt="logo" height={30} width={30} className={styles.imgLogo} />
+                        </Link> 
+                    </div>
                     <h4 className={styles.formHeader}>Create Your Account to Get Started</h4>
                     <Input 
                         showIcon={true} 
@@ -134,6 +141,7 @@ const Signup = () => {
                         value={confirmPassword}
                         onChange={(event) => setConfirmPassword(event.target.value)}
                     />
+                    <br />
                     <Button onClick={() => signUpUser()}>
                         {isLoading ? 'Creating your account...' : 'Create your account'}
                     </Button>
