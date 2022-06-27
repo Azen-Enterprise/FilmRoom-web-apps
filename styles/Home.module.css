@@ -4,6 +4,11 @@
   color: #fff;
 }
 
+.body {
+  position: relative;
+  min-height: 100vh;
+}
+
 .main {
   background-image: url('/images/bg-fr.png'); 
   background-repeat: no-repeat;

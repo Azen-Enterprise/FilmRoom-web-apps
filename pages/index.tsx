@@ -5,7 +5,6 @@ import Image from 'next/image'
 import { initializeApp } from 'firebase/app'
 import { getDatabase, push, ref } from 'firebase/database'
 
-// import {Toast} from '../components/';
 import styles from '../styles/Home.module.css'
 import config from '../config/config';
 import Footer from '../components/Footer';
