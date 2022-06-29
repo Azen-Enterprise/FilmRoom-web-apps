@@ -4,11 +4,13 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { initializeApp } from 'firebase/app'
 import { getDatabase, push, ref } from 'firebase/database'
+import TypeIt from "typeit-react";
 
 import styles from '../styles/Home.module.css'
 import config from '../config/config';
 import Footer from '../components/Footer';
 import { Navbar } from '../components';
+
 
 // TODO: refactor this into it's own component
 type ToastProps = {
@@ -63,7 +65,7 @@ const Home: NextPage = () => {
     <div className={styles.container}>
       <Head>
         <title>FilmRoom</title>
-        <meta name="description" content="A platform for movies for Africans by Africans" />
+        <meta name="description" content="A video on-demand platform for movies for Africans by Africans" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
