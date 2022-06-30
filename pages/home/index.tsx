@@ -180,10 +180,6 @@ const Home = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className={styles.sectionHeader}>
-                                        <h6>More Like This</h6>
-                                        <div className={styles.block} />
-                                    </div>
                                     <div className={styles.videoPlayer}>
                                         
                                     </div>
