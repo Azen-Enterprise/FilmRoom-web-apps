@@ -32,7 +32,7 @@
 .movie__container {
   color: #fff;
   object-fit: contain;
-  height: 250px;
+  height: 70%;
   background-size: cover;
   background-position: center center;
   background-image: url('../assets/demo/poster1.jpeg'); 

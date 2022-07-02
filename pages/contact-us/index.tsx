@@ -1,7 +1,39 @@
-import React from 'react';
+import React, { useState } from 'react';
+
 import Footer from '../../components/Footer';
+import styles from '../../styles/Login.module.css';
+import { Button, Input, Navbar } from '../../components';
+import LockIcon from '../../assets/password-icon.svg';
+import { isEmpty, validateEmail } from '../../helpers/utils';
+
+import EmailIcon from '../../assets/email-icon.svg';
+import PhoneIcon from '../../assets/phone-icon.svg';
 
 const ContactUs = () => {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
+    const [showError, setShowError] = useState(false);
+    const [errorMsg, setErrorMsg] = useState('');
+
+    const onSubmitForm = () => {
+        setIsLoading(true);
+        setShowError(false);
+        if (!isEmpty(email)) {
+            if (validateEmail(email)) {
+                let data = {email, password};
+              } else {
+                setIsLoading(false);
+                setShowError(true);
+                setErrorMsg('Please enter a valid email address!');
+              }
+        } else {
+            setShowError(true);
+            setIsLoading(false);
+            setErrorMsg('Please fill in all the fields!');
+        }
+    }
+
     return (
         <div className="page__container">
             <div className="page__header">
@@ -9,22 +41,46 @@ const ContactUs = () => {
                     <h3>Contact Us</h3>
                 </div>
             </div>
-            <div className="container page__body">
-                <p>
-                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur
-                </p>
-                <p>
-                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur
-                </p>
-                <p>
-                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur
-                </p>
-                <p>
-                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur
-                </p>
-                <p>
-                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur
-                </p>
+            <div className="container ">
+            <div className={styles.loginContainer}>
+            <div className={styles.mainContainer}>
+                <div className={styles.formContainer}>
+                {showError && 
+                        <div className="alert alert-danger" role="alert">
+                            {errorMsg}
+                        </div>
+                    }
+                    <h4 className={styles.formHeader}>Leave your request here for us</h4>
+                    <Input 
+                        showIcon={true} 
+                        placeholderText='Your Name' 
+                        value=""
+                    />
+                    <Input 
+                        showIcon={true} 
+                        placeholderText='Your Email' 
+                        value=""
+                        icon={EmailIcon}
+                    />
+                    <Input 
+                        showIcon={true} 
+                        placeholderText='Your phone number' 
+                        value=""
+                        icon={PhoneIcon}
+                    />
+                    <Input 
+                        icon={LockIcon} 
+                        showIcon={false} 
+                        placeholderText='Your message' 
+                        value=''
+                    />
+                    <Button onClick={() => onSubmitForm()}>
+                        {isLoading ? 'Sending your message...' : 'Send'}
+                    </Button>
+                    <br />
+                </div>
+            </div>
+        </div>
             </div>
             <Footer />
         </div>
