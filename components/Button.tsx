@@ -5,11 +5,12 @@ import styles from './styles/Button.module.css';
 type ButtonProps = {
     children: React.ReactNode;
     onClick?: () => void;
+    isLogout?: Boolean;
 }
 
-const Button: FC<ButtonProps> = ({ children, onClick }) => {
+const Button: FC<ButtonProps> = ({ children, onClick, isLogout }) => {
     return (
-        <button className={styles.btnContainer} onClick={onClick}>
+        <button className={isLogout ? styles.logout : styles.btnContainer} onClick={onClick}>
             {/* <Link passHref={true}> */}
                 <span className={styles.btnText}>{children}</span>
             {/* </Link> */}

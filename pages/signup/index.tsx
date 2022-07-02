@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import {createUserWithEmailAndPassword} from 'firebase/auth';
 
-import {authentication} from '../../firebase/firebase-config';
+// import {authentication} from '../../firebase/firebase-config';
 import { isEmpty, validateEmail, validatePassword, comparePassword } from '../../helpers/utils';
 
 import styles from '../../styles/Signup.module.css';
@@ -13,6 +13,10 @@ import LockIcon from '../../assets/password-icon.svg';
 import EmailIcon from '../../assets/email-icon.svg';
 import PhoneIcon from '../../assets/phone-icon.svg';
 import Logo from '../../assets/logo.png';
+import useAuth from '../../hooks/useAuth';
+import { newAccountDetails } from '../../typings';
+import { doc, setDoc } from '@firebase/firestore';
+import { db } from '../../firebase/firebase-config';
 
 const Signup = () => {
     const router = useRouter();
@@ -27,11 +31,53 @@ const Signup = () => {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
 
+    // NEW
+    const { signUp, user } = useAuth();
+
     const clearFields = () => {
         setEmail('');
-        setPhone('');
         setPassword('');
         setConfirmPassword('');
+    }
+    // const updateProfile = async () => {
+        
+        
+            
+          
+    // }
+    
+   async function signUpSuccess(userId: any) {
+        setIsLoading(false);
+        // UPDATE FIREBASE WITH NEW ACCOUNT
+        let newUserDetails: newAccountDetails;
+        newUserDetails = {
+          email: email,
+          owner_id: userId,
+          phone: phone
+        }
+        await setDoc(
+            
+          doc(db, 'users', userId, 'account', 'details'),
+              {
+              ...newUserDetails,
+              }
+          )
+        clearFields();
+        setSuccessMsg('Account successfully created. Login to get started');
+        setShowSuccess(true);
+        setTimeout(() => {
+          router.push('/home');
+        }, 3000);
+    }
+
+    function signUpError(error: any) {
+          setIsLoading(false);
+          setShowError(true);
+          if (error.code === 'auth/email-already-in-use') {
+              setErrorMsg('Email already exists. Login instead');
+          } else {
+              setErrorMsg('Error creating an account. Please try again!');
+          }
     }
     
     const signUpUser = () => {
@@ -40,7 +86,6 @@ const Signup = () => {
 
         if (
           !isEmpty(email) ||
-          !isEmpty(phone) ||
           !isEmpty(password) ||
           !isEmpty(confirmPassword)
         ) {
@@ -53,31 +98,13 @@ const Signup = () => {
               email,
               password,
             };
-            createUserWithEmailAndPassword(
-              authentication,
+            signUp(
               data.email,
               data.password,
+              signUpSuccess,
+              signUpError
             )
-              .then(response => {
-                console.log(response);
-                setIsLoading(false);
-                clearFields();
-                setSuccessMsg('Account successfully created. Login to get started');
-                setShowSuccess(true);
-                setTimeout(() => {
-                  router.push('/login');
-                }, 3000);
-              })
-              .catch(error => {
-                setIsLoading(false);
-                setShowError(true);
-                if (error.code === 'auth/email-already-in-use') {
-                    setErrorMsg('Email already exists. Login instead');
-                } else {
-                    setErrorMsg('Error creating an account. Please try again!');
-                }
-                console.error(error);
-              });
+      
           } else {
             setIsLoading(false);
             setShowError(true);
@@ -91,6 +118,12 @@ const Signup = () => {
           setErrorMsg('Please fill in all fields');
         }
       };
+    
+    if(user) {
+        router.push('/home');
+    }
+
+    if(user) return null;
 
     return (
         <div className={styles.signupContainer}>
@@ -118,13 +151,13 @@ const Signup = () => {
                         value={email}
                         onChange={(event) => setEmail(event.target.value)}
                     />
-                    <Input 
+                     <Input 
                         showIcon={true} 
-                        icon={PhoneIcon}
+                        placeholderText='Phone' 
                         value={phone}
                         onChange={(event) => setPhone(event.target.value)}
-                        placeholderText='Phone Number' 
                     />
+    
                     <Input 
                         type='password' 
                         icon={LockIcon} 
@@ -156,3 +189,11 @@ const Signup = () => {
 
 
 export default Signup;
+
+
+
+
+
+
+
+

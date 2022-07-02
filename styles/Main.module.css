@@ -57,7 +57,7 @@
   height: 448px;
   background-size: cover;
   background-position: center center;
-  background-image: url('../assets/demo/poster1.jpeg');
+  /* background-image: url('../assets/demo/poster1.jpeg'); */
 }
 
 .banner__contents {

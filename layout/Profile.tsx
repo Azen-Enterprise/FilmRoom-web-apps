@@ -1,8 +1,19 @@
-import React, { useState } from 'react';
+import { DocumentData } from '@firebase/firestore';
+import React, { useEffect, useState } from 'react';
 import { Input, Button } from '../components';
+import useAuth from '../hooks/useAuth';
+import { userDetails } from '../typings';
 import styles from './styles/Profile.module.css';
+import { profileModalState } from '../atoms/modalAtom';
+import { useRecoilState } from 'recoil';
 
-const Profile = () => {
+type Props = {
+    userDetails: userDetails | DocumentData | undefined,
+    updateProfile: Function,
+    userDetailsHasArrive: Function
+}
+
+const Profile = ({ userDetails, updateProfile, userDetailsHasArrive }: Props) => {
     const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');
     const [firstName, setFirstName] = useState('');
@@ -10,10 +21,40 @@ const Profile = () => {
     const [city, setCity] = useState('');
     const [country, setCountry] = useState('');
     const [address, setAddress] = useState('');
+    const [displayName, setDisplayName] = useState('');
+    // NEW
+    const { logout, user } = useAuth();
+    const [showProfileModal, setShowProfileModal] = useRecoilState(profileModalState);
 
+    
+
+    let userNewDetails: userDetails = {
+        address: address,
+        city: city,
+        country: country,
+        displayName: displayName,
+        firstName: firstName,
+        lastName: lastName,
+        owner_id: user?.uid,
+        phone: phone
+    };
+
+  
+
+    useEffect(() => {
+        if(!userDetails) return;
+        setFirstName(userDetails.firstName);
+        setLastName(userDetails.lastName);
+        setCity(userDetails.city);
+        setAddress(userDetails.address);
+        setPhone(userDetails.phone)
+        setCountry(userDetails.country);
+    },[userDetails])
+    
     return (
+        
         <div className={`${styles.profileContainer} container`}>
-            <h4 className={styles.formHeader}>Your Profile</h4>
+            <h4 className="text-white">Your Profile</h4>
             <div className="row">
                 <div className="col">
                     <Input 
@@ -35,8 +76,8 @@ const Profile = () => {
             <Input 
                 showIcon={true} 
                 placeholderText='Email' 
-                value={email}
-                onChange={(event) => setEmail(event.target.value)}
+                value={user?.email ? user.email : ''}
+                
             />
             <Input 
                 showIcon={true} 
@@ -74,8 +115,15 @@ const Profile = () => {
                 onChange={(event) => setAddress(event.target.value)}
             />
             <br />
-            <Button>
+            
+            <Button isLogout={false} onClick={() => {
+                updateProfile(userNewDetails);
+            }}>
                 Update Account
+            </Button>
+            <br />
+            <Button isLogout={true} onClick={logout}>
+                Logout
             </Button>
         </div> 
     )
