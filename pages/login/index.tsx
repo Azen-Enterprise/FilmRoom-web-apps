@@ -1,20 +1,35 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import {signInWithEmailAndPassword} from 'firebase/auth';
 
-import {authentication} from '../../firebase/firebase-config';
+// import {authentication} from '../../firebase/firebase-config';
 
 import styles from '../../styles/Login.module.css';
 import { Button, Input, Navbar } from '../../components';
 import LockIcon from '../../assets/password-icon.svg';
 import Logo from '../../assets/logo.png';
 import { isEmpty, validateEmail } from '../../helpers/utils';
+// NEW
+// import { useForm, SubmitHandler } from 'react-hook-form'
+import useAuth from '../../hooks/useAuth';
+
 
 type InputEvent = React.ChangeEvent<HTMLInputElement>
 
+interface Inputs {
+    email: string
+    password: string
+  }
+
 const Login = () => {
+    // New Code
+    const [login, setLogin] = useState(false);
+    const { signIn } = useAuth();
+    const { user } = useAuth()
+    // END NEW CODE
+
     const router = useRouter();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -26,34 +41,33 @@ const Login = () => {
         setEmail('');
         setPassword('');
     }
-
+    function loginSuccess() {
+        setIsLoading(false);
+        clearFields();
+    }
+    function loginError(error: any) {
+            setIsLoading(false);
+            setShowError(true);
+            if (error.code === 'auth/user-not-found') {
+                setErrorMsg(
+                'User is not found. Please create an account to login!',
+                );
+            } else if (error.code === 'auth/wrong-password') {
+                setErrorMsg(
+                'Invalid email or password. Please verify and try again',
+                );
+            } else {
+                setErrorMsg('Error logging you in. Please try again');
+            }
+    }
     const onSubmitForm = () => {
         setIsLoading(true);
         setShowError(false);
         if (!isEmpty(email) || !isEmpty(password)) {
             if (validateEmail(email)) {
                 let data = {email, password};
-                signInWithEmailAndPassword(authentication, data.email, data.password)
-                  .then(_ => {
-                    setIsLoading(false);
-                    clearFields();
-                    router.push('/home');
-                  })
-                  .catch(error => {
-                    setIsLoading(false);
-                    setShowError(true);
-                    if (error.code === 'auth/user-not-found') {
-                        setErrorMsg(
-                        'User is not found. Please create an account to login!',
-                      );
-                    } else if (error.code === 'auth/wrong-password') {
-                        setErrorMsg(
-                        'Invalid email or password. Please verify and try again',
-                      );
-                    } else {
-                        setErrorMsg('Error logging you in. Please try again');
-                    }
-                  });
+                signIn(data.email, data.password, loginError, loginSuccess)
+           
               } else {
                 setIsLoading(false);
                 setShowError(true);
@@ -67,6 +81,12 @@ const Login = () => {
 
 
     }
+
+    if(user) {
+        router.push('/home');
+    }
+
+    if(user) return null;
 
     return (
         <div className={styles.loginContainer}>
@@ -104,6 +124,7 @@ const Login = () => {
                     <Link href="/signup" passHref={true}>
                         <p className={styles.linkBtn}>No account yet? <span>Sign up</span></p>
                     </Link>
+                    
                 </div>
             </div>
         </div>

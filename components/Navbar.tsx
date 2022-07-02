@@ -6,6 +6,8 @@ import styles from './styles/Navbar.module.css';
 import Logo from '../assets/logo.png';
 import SearchIcon from '../assets/search-icon.svg';
 import UserIcon from '../assets/user-icon.svg';
+import { useRecoilState } from 'recoil';
+import { profileModalState } from '../atoms/modalAtom';
 
 type Props = {
     isLoggedIn: boolean;
@@ -13,6 +15,8 @@ type Props = {
 }
 
 const Navbar: FC<Props> = ({ isLoggedIn, isSearch = false }) => {
+    const [showProfileModal, setShowProfileModal] = useRecoilState(profileModalState);
+
     return (
         <div className={styles.navContainer}>
             <div className={styles.rightContainer}>
@@ -24,10 +28,10 @@ const Navbar: FC<Props> = ({ isLoggedIn, isSearch = false }) => {
                 {isLoggedIn &&
                     <>
                         <span>All</span>
-                        <span>TV Shows</span>
-                        <span>Movies</span>
-                        <span>New Releases</span>
-                        <span>Purchased</span>
+                        <a href="#shows" className="link">TV Shows</a>
+                        <a href="#movies" className="link">Movies</a>
+                        <a href="#newrelease" className="link">New Releases</a>
+                        <a href="#purchased" className="link">Purchased</a>
                     </>
                 }
             </div>
@@ -38,7 +42,9 @@ const Navbar: FC<Props> = ({ isLoggedIn, isSearch = false }) => {
                             <Link href="/home/search" passHref={true}>
                                 <Image src={SearchIcon} alt="Search icon" height={30} width={30} />
                             </Link>
-                            <div className={styles.userWrapper} data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            <div className={styles.userWrapper} onClick={() => {
+                                setShowProfileModal(true);
+                            }}>
                                 <Image src={UserIcon} alt="User icon" height={25} width={25} />
                             </div>
                         </> :
